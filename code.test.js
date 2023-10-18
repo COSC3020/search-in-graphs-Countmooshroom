@@ -18,15 +18,28 @@ const test =
         }
 
         //Create random start and end
-        var start = getRandomInt(0, list.length);
-        var end = getRandomInt(0, list.length);
+        var start = Math.round(Math.random() * (list.length - 1));
+        var end = Math.round(Math.random() * (list.length - 1));
 
-        path = depthFirstSearch(list, start, end);
+        //Run function
+        var path = depthFirstSearch(list, start, end);
 
-        //Then I'd run through the graph to make sure I can follow this path and get to the end node
+        //Run through the graph to make sure I can follow this path and get to the end node
+        if (path.length > 0) {
+            //Check start and end nodes
+            if (path[0] != start || path[path.length - 1] != end) { return false; }
 
-        //I also need to check that if the path is [], there really is no way the item can be found.
+            //Check that all nodes connect
+            for (let i = 0; i < path.length - 1; i++) {
+                if (!list[path[i]].includes(path[i+1])) {
+                    return false;
+                }
+            }
+        }
+
+        //The above loop checks every graph that the functions returns a path for.
+        //If the function says that no path exists, I don't know how to check it.
 
         return true;
     });
-jsc.assert(test, { tests: 1000 });
+jsc.assert(test, { tests: 10000 });
