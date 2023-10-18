@@ -3,14 +3,12 @@ function depthFirstSearch(graph, startNode, targetNode) {
     return search(graph, startNode, targetNode, visited, []);
 }
 
-
 function search(graph, startNode, targetNode, visited, path) {
-
+    
     //starting at the start node, while unvisited nodes remain
     path.push(startNode);
 
     //if current vertex is the node we're looking for, return it
-    //console.log(path);
     if (startNode == targetNode) {
         return path;
     }
@@ -26,7 +24,3 @@ function search(graph, startNode, targetNode, visited, path) {
     }
     return [];
 }
-
-
-
-//console.log(depthFirstSearch([[1, 2], [3], [4], [1, 2], [2]], 0, 4));
