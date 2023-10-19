@@ -25,3 +25,10 @@ answer, including your reasoning, to this markdown file.
 ## Bonus
 
 Implement and analyze breadth-first search.
+
+## Answer
+
+In my algorithm, it starts with the first node and then searches a random path until the path ends or it finds the node that it is searching for.  In the worst case, it would find the node in the last posisble path.  Each time it does not find the node at the end of that path, it just backtracks to the next possible choice and looks at that path.  This way, it doesn't need to look at nodes or edges multiple times.  Since it will search through every node and path in the worst case, the time complexity is $\Theta(|V|+|E|)$.
+
+Help from https://brilliant.org/wiki/depth-first-search-dfs/
+
